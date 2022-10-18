@@ -413,6 +413,8 @@ class Config:
                 with open(self.log_config) as file:
                     loaded_config = yaml.safe_load(file)
                     logging.config.dictConfig(loaded_config)
+            elif self.log_config in [False, 'disable']:
+                pass
             else:
                 # See the note about fileConfig() here:
                 # https://docs.python.org/3/library/logging.config.html#configuration-file-format
